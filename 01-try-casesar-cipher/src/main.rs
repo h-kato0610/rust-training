@@ -20,16 +20,18 @@ fn convert_u8_to_char(ch: u8) -> char {
 
 fn encode(in_text: &str, shift: i16) -> String {
     let alphabet_num = 26;
-    let upper_first_code = 'A' as i16;
-    let lower_first_code = 'a' as i16;
+    let upper_first_code = 'A';
+    let upper_end_code = 'Z';
+    let lower_first_code = 'a';
+    let lower_end_code = 'z';
     let mut result = String::new();
 
     for ch in in_text.chars() {
         let push_ch: char;
-        if 'a' <= ch && ch <= 'z' {
-            push_ch = convert_u8_to_char(rotate(ch, lower_first_code, shift, alphabet_num));
-        } else if 'A' <= ch && ch <= 'Z' {
-            push_ch = convert_u8_to_char(rotate(ch, upper_first_code, shift, alphabet_num));
+        if lower_first_code <= ch && ch <= lower_end_code {
+            push_ch = convert_u8_to_char(rotate(ch, lower_first_code as i16, shift, alphabet_num));
+        } else if upper_first_code <= ch && ch <= upper_end_code {
+            push_ch = convert_u8_to_char(rotate(ch, upper_first_code as i16, shift, alphabet_num));
         } else {
             push_ch = ch
         }
