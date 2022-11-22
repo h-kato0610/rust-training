@@ -3,12 +3,12 @@ use std::env;
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    if args.len() != {
-        panic("\n Input your [OriginalText] [Shift Num]");
+    if args.len() != 3 {
+        panic!("\n Input your [OriginalText] [Shift Num]");
     }
 
     let in_text = &args[1];
-    let shift: i16 = args[2].trim().parse().except("Input Your Integer");
+    let shift: i16 = args[2].trim().parse().expect("Input Your Integer");
 
     let encode_text = encode(in_text, shift);
     println!("{} -> {}", in_text, encode_text);
