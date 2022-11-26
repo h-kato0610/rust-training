@@ -6,7 +6,7 @@ pub mod generate {
         let mut rng = rand::thread_rng();
 
         for _i in 0..create_num_len {
-            let r = rand::thread_rng().gen_range(rand_min..rand_max);
+            let r = rng.gen_range(rand_min..rand_max);
             rand_array.push(r);
         }
 

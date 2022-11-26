@@ -1,7 +1,10 @@
 mod create_rand_num;
-use std::env;
+mod sort;
 
 pub use crate::create_rand_num::generate;
+pub use crate::sort::quick_sort;
+
+use std::env;
 
 fn main() {
     // Args Process
@@ -12,12 +15,10 @@ fn main() {
     let create_num_len: i32 = args[1].trim().parse::<i32>().expect("[Input your Integer]");
     let rand_min: i32 = args[2].trim().parse::<i32>().expect("[Input your Integer]");
     let rand_max: i32 = args[3].trim().parse::<i32>().expect("[Input your Integer]");
-
+    
     // Get Result
-    let result = generate::execute(create_num_len, rand_min, rand_max);
+    let random_numbers = generate::execute(create_num_len, rand_min, rand_max);
 
-    println!("{}", result.len());
-    for i in result {
-        print!("{} / ", i);
-    }
+    let r = sort::quick_sort::get_sorted_vector(random_numbers);
+
 }
