@@ -21,4 +21,6 @@ fn main() {
 
     let r = sort::quick_sort::get_sorted_vector(random_numbers);
 
+    print!("_-----------------");
+    print!("{}", r);
 }
