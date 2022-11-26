@@ -1,2 +1,5 @@
 *.Cargo.lock
+Cargi.lock
 target/
+target/*
+target/.*
